@@ -1,0 +1,36 @@
+<?php
+
+$(macro) {
+    $(
+        // "as alias" due to https://github.com/marcioAlmada/yay/issues/56
+        classProperty() as alias
+    )
+} >> {
+    [
+        $(alias ... {
+            $(classPropertyVisibilityModifiers ? {
+                $(classPropertyVisibilityModifiers ...(,) {
+                    $$(stringify($(classPropertyVisibilityModifier)))
+                }) ,
+            })
+
+            $(classPropertyType ? {
+                $$(stringify($(classPropertyType))) ,
+            })
+
+            $$(stringify($(classPropertyName))) ,
+
+            $(classPropertyValue ? {
+                $$(stringify($(classPropertyValue)))
+            })
+        })
+    ]
+}
+
+return [
+    private $foo,
+    private $foo = "bar",
+    private string $foo,
+    private $foo = bar(),
+    private $foo = new Bar()
+];

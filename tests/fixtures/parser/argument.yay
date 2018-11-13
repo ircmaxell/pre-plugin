@@ -1,0 +1,36 @@
+<?php
+
+$(macro) {
+    $(
+        // "as alias" due to https://github.com/marcioAlmada/yay/issues/56
+        argument() as alias
+    )
+} >> {
+    [
+        $(alias ... {
+            $(argumentNullable ? {
+                'nullable',
+            })
+            $(argumentType ? {
+                $$(stringify($(argumentType))),
+            })
+            $$(stringify($(argumentName))),
+            $(argumentValue ? {
+                'equals',
+                $(argumentNew ? {
+                    'new',
+                })
+                $$(stringify($(argumentValue)))
+            })
+        })
+    ]
+}
+
+return [
+    $foo,
+    ? string $foo,
+    ? string $foo = "bar",
+    ? stdClass $foo = makeObject(),
+    ? stdClass $foo = new stdClass(),
+    ? stdClass $foo = new stdClass(1, "two", 3)
+];

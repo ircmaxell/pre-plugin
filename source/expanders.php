@@ -16,16 +16,20 @@ namespace Yay\DSL\Expanders {
         return \Pre\Plugin\Expanders\collapse($stream, $engine);
     }
 
-    function functionModifiers(TokenStream $stream, Engine $engine): TokenStream {
-        return \Pre\Plugin\Expanders\functionModifiers($stream, $engine);
+    function visibilityModifiers(TokenStream $stream, Engine $engine): TokenStream {
+        return \Pre\Plugin\Expanders\visibilityModifiers($stream, $engine);
     }
 
-    function functionArgument(TokenStream $stream, Engine $engine): TokenStream {
-        return \Pre\Plugin\Expanders\functionArgument($stream, $engine);
+    function visibilityModifiers2(TokenStream $stream, Engine $engine): TokenStream {
+        return \Pre\Plugin\Expanders\visibilityModifiers2($stream, $engine);
     }
 
-    function functionReturn(TokenStream $stream, Engine $engine): TokenStream {
-        return \Pre\Plugin\Expanders\functionReturn($stream, $engine);
+    function argument(TokenStream $stream, Engine $engine): TokenStream {
+        return \Pre\Plugin\Expanders\argument($stream, $engine);
+    }
+
+    function returnType(TokenStream $stream, Engine $engine): TokenStream {
+        return \Pre\Plugin\Expanders\returnType($stream, $engine);
     }
 }
 
@@ -56,7 +60,7 @@ namespace Pre\Plugin\Expanders {
         return _stream($stream, $engine);
     }
 
-    function functionModifiers(TokenStream $stream, Engine $engine): TokenStream {
+    function visibilityModifiers(TokenStream $stream, Engine $engine): TokenStream {
         $parts = [];
 
         while ($token = $stream->current()) {
@@ -69,7 +73,7 @@ namespace Pre\Plugin\Expanders {
         return _stream($source, $engine);
     }
 
-    function functionArgument(TokenStream $stream, Engine $engine): TokenStream {
+    function argument(TokenStream $stream, Engine $engine): TokenStream {
         $parts = [];
         $previous = null;
         $nullable = false;
@@ -104,7 +108,7 @@ namespace Pre\Plugin\Expanders {
         return _stream($source, $engine);
     }
 
-    function functionReturn(TokenStream $stream, Engine $engine): TokenStream {
+    function returnType(TokenStream $stream, Engine $engine): TokenStream {
         if ($stream->isEmpty()) {
             return _stream("", $engine);
         }

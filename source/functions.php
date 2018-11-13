@@ -113,15 +113,3 @@ function removeCompiler($compiler)
     $instance = instance();
     return $instance->removeCompiler($compiler);
 }
-
-function addFunction(...$args)
-{
-    $instance = instance();
-    return $instance->addFunction(...$args);
-}
-
-function getFunction(...$args)
-{
-    $instance = instance();
-    return $instance->getFunction(...$args);
-}

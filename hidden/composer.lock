@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a69235091bc7701c8635fc5e4c178116",
+    "content-hash": "d17dfff92fb48e21628f5160c1f5d676",
     "packages": [
         {
             "name": "nikic/php-parser",
-            "version": "v4.0.4",
+            "version": "v4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "fa6ee28600d21d49b2b4e1006b48426cec8e579c"
+                "reference": "d0230c5c77a7e3cfa69446febf340978540958c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/fa6ee28600d21d49b2b4e1006b48426cec8e579c",
-                "reference": "fa6ee28600d21d49b2b4e1006b48426cec8e579c",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/d0230c5c77a7e3cfa69446febf340978540958c0",
+                "reference": "d0230c5c77a7e3cfa69446febf340978540958c0",
                 "shasum": ""
             },
             "require": {
@@ -33,7 +33,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.0-dev"
+                    "dev-master": "4.1-dev"
                 }
             },
             "autoload": {
@@ -55,20 +55,20 @@
                 "parser",
                 "php"
             ],
-            "time": "2018-09-18T07:03:24+00:00"
+            "time": "2018-10-10T09:24:14+00:00"
         },
         {
             "name": "yay/yay",
-            "version": "0.7.0",
+            "version": "dev-bug/alias",
             "source": {
                 "type": "git",
                 "url": "https://github.com/marcioAlmada/yay.git",
-                "reference": "277f52cf44d78e677cc7dadd1aa48d54cfe9d272"
+                "reference": "7763cc21f5c0ec2a999903e76513a6edc450c5ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/marcioAlmada/yay/zipball/277f52cf44d78e677cc7dadd1aa48d54cfe9d272",
-                "reference": "277f52cf44d78e677cc7dadd1aa48d54cfe9d272",
+                "url": "https://api.github.com/repos/marcioAlmada/yay/zipball/7763cc21f5c0ec2a999903e76513a6edc450c5ff",
+                "reference": "7763cc21f5c0ec2a999903e76513a6edc450c5ff",
                 "shasum": ""
             },
             "require": {
@@ -113,14 +113,16 @@
                 "pre-processor",
                 "syntax"
             ],
-            "time": "2018-06-26T11:52:57+00:00"
+            "time": "2018-11-10T13:09:10+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": [],
-    "prefer-stable": false,
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "yay/yay": 20
+    },
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": []

@@ -5,17 +5,14 @@ namespace Pre\Plugin;
 use Exception;
 
 define("COMMENT", trim("
-# This file is generated, changes you make will be lost.
-# Make your changes in %s instead.
+// This file is generated and changes you make will be lost.
+// Change %s instead.
 "));
 
 class Parser
 {
     private $macro = [];
-
     private $compilers = [];
-
-    private $functions = [];
 
     public function addMacro($macro)
     {
@@ -193,19 +190,5 @@ class Parser
         unlink($file);
 
         return $code;
-    }
-
-    public function addFunction($name, $function)
-    {
-        $this->functions[$name] = $function;
-    }
-
-    public function getFunction($name)
-    {
-        if (isset($this->functions[$name])) {
-            return $this->functions[$name];
-        }
-
-        throw new Exception($name . " has not been added");
     }
 }
