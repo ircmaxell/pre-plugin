@@ -1,7 +1,0 @@
-{
-    "require": {
-        "yay/yay": "dev-bug/alias@dev"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
-}

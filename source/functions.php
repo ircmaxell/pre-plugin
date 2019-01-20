@@ -27,34 +27,6 @@ function base()
     return realpath("{$vendor}/../");
 }
 
-function defer($code)
-{
-    $hidden = realpath(__DIR__ . "/../hidden/vendor/autoload.php");
-    $visible = find("autoload.php");
-    
-    if (!$visible) {
-        // the plugin is being used/tested directly
-        $visible = __DIR__ . "/../vendor/autoload.php";
-    }
-
-    $defer = "
-        require '{$hidden}';
-        require '{$visible}';
-
-        \$function = function() {
-            {$code};
-        };
-
-        print base64_encode(serialize(\$function()));
-    ";
-
-    $result = exec(
-        "php -r 'eval(base64_decode(\"" . base64_encode($defer) . "\"));'"
-    );
-    
-    return unserialize(base64_decode($result));
-}
-
 function instance()
 {
     static $instance = null;
